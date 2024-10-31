@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>OPERACIONES LOGICAS</title>
+  </head>
+  <body>
+
+    <h1>😎¡VAMOS A CALCULAR!😎</h1>
+
+    <div class="button-container">
+      <button onclick="OperacionesAritmeticas()">ARITMETICOS</button>
+      <button onclick="realizarLogicas()">LOGICOS</button>
+      <button onclick="realizarComparativas()">COMPARATIVOS</button>
+  </div>
+
+    <div class="container">
+        <input type="number" id="inputA" placeholder="NUMERO 1:" />
+        <input type="number" id="inputB" placeholder="NUMERO 2:" />
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        function OperacionesAritmeticas() {
+            const a = parseFloat(document.getElementById("inputA").value);
+            const b = parseFloat(document.getElementById("inputB").value);
+            let resultados = "";
+
+            if (isNaN(a) || isNaN(b)) {
+                resultados = "INGRESE NUMEROS";
+            } else {
+                resultados += `Suma: ${a + b}<br>`;
+                resultados += `Resta: ${a - b}<br>`;
+                resultados += `Multiplicación: ${a * b}<br>`;
+                resultados += `División: ${a / b}<br><br>`;
+            }
+            document.getElementById('results').innerHTML = resultados;
+        }
+
+        function realizarLogicas() {
+            const esMayorDeEdad = document.getElementById('inputA').value === "18"; 
+            const tieneLicencia = document.getElementById('inputB').value === "SI"; 
+            const puedeConducir = esMayorDeEdad && tieneLicencia;
+
+            let resultados = `Puede conducir: ${puedeConducir ? 'Sí' : 'No'}`;
+            document.getElementById('results').innerHTML = resultados;
+        }
+
+        function realizarComparativas() {
+            const a = parseFloat(document.getElementById('inputA').value);
+            const b = parseFloat(document.getElementById('inputB').value);
+            let resultados = '';
+
+            if (isNaN(a) || isNaN(b)) {
+                resultados = 'Por favor, ingresa números válidos.';
+            } else {
+                resultados += `¿a es mayor que b? ${a > b}<br>`;
+                resultados += `¿a es menor que b? ${a < b}<br>`;
+                resultados += `¿a es igual a b? ${a === b}<br>`;
+                resultados += `¿a es menor o igual a b? ${a <= b}<br>`;
+            }
+
+            document.getElementById('results').innerHTML = resultados;
+        }
+    </script>
+
+<footer>
+  <p>Copyright © 2024- 31 - OCT - JEREMY FONTALVO MUNERA</p>
+</footer>
+  </body>
+</html>
